@@ -23,7 +23,7 @@ struct A {
     EXPOSE
     string s;
 
-    [[nodiscard]] std::string str() const {
+    [[nodiscard]] string str() const {
         return "A{ x int " + std::to_string(x) + "; float y " + std::to_string(y) + "; s `" + s + "` }";
     }
 };
@@ -33,5 +33,7 @@ int main() {
     A *ptr = new A{3, 2.5f, "hello32"};
     auto s = serialize<A>("A", ptr);
     std::cout << s;
-    std::cout << deserialize<A>(s)->str() << "\n";
+    auto a = deserialize<A>(s);
+    printf("%d %f %s", a->x, a->y, a->s.c_str());
+    return 0;
 }
