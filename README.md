@@ -1,5 +1,5 @@
-# reflection_cpp
-Custom reflection system for C++, similar to what Unity uses (UnrealHeaderTool), used for readable serialization/deserialization
+# C++ reflection
+Custom reflection system for C++, similar to UnrealHeaderTool, used for readable serialization/deserialization
 
 Example usage:
 ```c++
@@ -31,8 +31,8 @@ int main() {
 }
 ```
 
-Currently supports only 3 types: `float`, `int` and `string`, because it was created for demonstration purposes only.
-But it's easily extendable to any other type or container, all you have to do is to add branch condition in `deserialize` function:
+Currently, supports only 3 types: `float`, `int` and `string`, because it was created for demonstration purposes only,
+but it's easily extendable to any other type or container, all you have to do is to add branch condition in `deserialize` function:
 ```c++
  } else if (input[i] == "string") {
     *((std::string *) (ptr + offset)) = input[i + 2];
